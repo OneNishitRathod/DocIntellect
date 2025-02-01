@@ -67,7 +67,7 @@ DocIntellect/
 
 ## 4. Install Ollama and Pull the deepseek-r1:8b model
   ```bash
-  [Ollama](https://ollama.com/)
+  Navigate to https://ollama.com/
   ollama --version
   ollama pull deepseek-r1:8b
   ```
@@ -79,8 +79,43 @@ Note: If you prefer using WSL (Windows Subsystem for Linux), you can install Oll
   ```
 This will load your documents, split them into manageable chunks, generate embeddings using Ollama, and store them in the Chroma vector database located in the vectorstore/ directory.
 
-## 6. Usage
+# Usage
   ```bash
 streamlit run app.py
   ```
 Open your browser and navigate to the local URL provided by Streamlit. You can then enter questions related to your documents, and the chatbot will retrieve and display the relevant information.
+
+# How It Works
+
+## Document Ingestion
+
+- **Loading Documents:**  
+  Documents placed in the `data/` folder are loaded using LangChain's document loaders.
+
+- **Splitting Documents:**  
+  The documents are split into manageable chunks using the `RecursiveCharacterTextSplitter`.
+
+- **Generating Embeddings:**  
+  For each chunk, embeddings are generated using Ollama with the DeepSeek R1 8B model.
+
+- **Storing Embeddings:**  
+  The generated embeddings are stored in a local Chroma vector database for efficient retrieval.
+
+## Chat Interface
+
+- **Loading the Vector Store:**  
+  The Streamlit app loads the Chroma vector store and sets up a RetrievalQA chain.
+
+- **Processing User Queries:**  
+  User queries are processed by retrieving the most relevant document chunks from the vector database.
+
+- **Generating Responses:**  
+  The retrieved context is passed to the DeepSeek R1 8B model to generate an accurate and context-aware response.
+
+## Interactive Chatbot
+
+- The web interface allows you to interact with your documents seamlessly, making it easy to extract insights and answer queries based on your data.
+
+# License
+
+This project is open-source and available under the MIT License.
