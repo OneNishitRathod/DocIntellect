@@ -21,7 +21,7 @@ DocIntellect is a powerful AI-driven application designed to interact with and e
 
 ## Technologies Used
 
-- **Programming Language**: Python
+- **Programming Language**: Python 3.12.8
 - **Web Framework**: [Streamlit](https://streamlit.io/)
 - **RAG Framework & Document Processing**: [LangChain](https://github.com/langchain-ai/langchain)
 - **Language Model Interface**: [Ollama](https://ollama.com/)
@@ -38,11 +38,11 @@ DocIntellect is a powerful AI-driven application designed to interact with and e
   ```bash
   git clone https://github.com/onenishitrathod/DocIntellect.git
   cd DocIntellect
+  ```
 
 ## Project Structure
-
 ```plaintext
-rag-chatbot/
+DocIntellect/
 │── app.py                # Main Streamlit web app
 │── ingest.py             # Script to process and store document embeddings in Chroma DB
 │── config.py             # Configuration settings
@@ -51,3 +51,36 @@ rag-chatbot/
 │── data/                 # Directory for document files (PDFs, TXT, etc.)
 │── chroma_db/            # Directory for storing the Chroma database
 │── README.md             # Project documentation
+```
+
+## 2. Create and Activate a Virtual Environment
+  ```bash
+  python -m venv venv
+  On Windows: venv\Scripts\activate
+  On macOS/Linux: source venv/bin/activate
+  ```
+
+## 3. Install the Dependencies
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+## 4. Install Ollama and Pull the deepseek-r1:8b model
+  ```bash
+  [Ollama](https://ollama.com/)
+  ollama --version
+  ollama pull deepseek-r1:8b
+  ```
+Note: If you prefer using WSL (Windows Subsystem for Linux), you can install Ollama using the shell script as described on their website.
+
+## 5. Process Your Documents
+  ```bash
+  python ingest.py
+  ```
+This will load your documents, split them into manageable chunks, generate embeddings using Ollama, and store them in the Chroma vector database located in the vectorstore/ directory.
+
+## 6. Usage
+  ```bash
+streamlit run app.py
+  ```
+Open your browser and navigate to the local URL provided by Streamlit. You can then enter questions related to your documents, and the chatbot will retrieve and display the relevant information.
