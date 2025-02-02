@@ -116,6 +116,10 @@ Open your browser and navigate to the local URL provided by Streamlit. You can t
 
 - The web interface allows you to interact with your documents seamlessly, making it easy to extract insights and answer queries based on your data.
 
-# License
+## License
 
-This project is open-source and available under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contributors
+
+- Nishit Rathod
