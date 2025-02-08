@@ -7,7 +7,6 @@ DocIntellect is a powerful AI-driven application designed to interact with and e
 - [Technologies Used](#technologies-used)
 - [Project Structure](#project-structure)
 - [Installation](#installation)
-- [Usage](#usage)
 - [How It Works](#how-it-works)
 - [License](#license)
 
@@ -44,7 +43,6 @@ DocIntellect is a powerful AI-driven application designed to interact with and e
 ```plaintext
 DocIntellect/
 │── app.py                # Main Streamlit web app
-│── ingest.py             # Script to process and store document embeddings in Chroma DB
 │── config.py             # Configuration settings
 │── utils.py              # Helper functions for document processing
 │── requirements.txt      # Python dependencies
@@ -70,16 +68,12 @@ DocIntellect/
   Navigate to https://ollama.com/
   ollama --version
   ollama pull deepseek-r1:8b
+  ollama pull deepseek-r1:1.5b
   ```
 Note: If you prefer using WSL (Windows Subsystem for Linux), you can install Ollama using the shell script as described on their website.
 
-## 5. Process Your Documents
-  ```bash
-  python ingest.py
-  ```
+## 5. Process Your Documents and Run app.py
 This will load your documents, split them into manageable chunks, generate embeddings using Ollama, and store them in the Chroma vector database located in the vectorstore/ directory.
-
-# Usage
   ```bash
 streamlit run app.py
   ```
